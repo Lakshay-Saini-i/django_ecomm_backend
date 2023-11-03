@@ -1,0 +1,23 @@
+{% extends "base/base.html" %}
+
+
+{% block content %}
+    Name = {{product.product_name}}<br>
+    Category = {{product.category}}<br>
+    Price = {{product.price}}.00 Rs.<br>
+
+    {% if product.size_varient %}
+    {% for size in product.size_varient.all %}
+      {{size}}-
+    {% endfor %}
+    {% endif %}
+    <img src="" alt="">
+    {% for image in product.product_images.all %}
+    <div style="display: flex grid;">
+    <div style="height: 220px; width: 150px; border: 2px solid;" >
+        <img src="/media/{{image.image }}" height="100%" width="100%">
+
+      </div>
+    </div>
+    {% endfor %}
+{% endblock content %}

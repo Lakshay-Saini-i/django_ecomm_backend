@@ -1,0 +1,25 @@
+{% extends "base/base.html" %}
+
+
+{% block content %}
+ <h1>index</h1>
+ 
+    
+    <div style="display: flex;">
+      {% for product in products  %}
+      <div style="margin: 10px;">
+        <div style="height: 220px; width: 150px; border: 2px solid;" >
+          <img src="{{ product.product_images.first.image.url }}" height="100%" width="100%">
+
+        </div>
+          
+        <div>
+          <a href="{% url 'product-detail' product.slug %}">&#8680; Name = {{product.product_name}} <br /></a> 
+          &#8680; Price  =  {{product.price}}.00 <br />
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    
+
+{% endblock content %}
